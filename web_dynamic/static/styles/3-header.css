@@ -16,3 +16,7 @@ header {
 .available {
     background-color: #ff545f;
 }
+
+header div {
+    background-color: #CCCCCC;
+}
