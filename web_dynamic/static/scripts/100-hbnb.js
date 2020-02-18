@@ -1,9 +1,9 @@
 $(document).ready(function () {
   $('.places h1').css('display', 'none');
   $('.locations input').css('margin-right', '10px');
-  let states = {};
-  let cities = {};
-  let amenities = {};
+  const states = {};
+  const cities = {};
+  const amenities = {};
 
   $('.locations input[type="checkbox"]').click(function () {
     if ($(this).is(':checked')) {
@@ -19,11 +19,11 @@ $(document).ready(function () {
         delete cities[$(this).attr('data-id')];
       }
     }
-    let amenitylist = [];
-    for (let key in states) {
+    const amenitylist = [];
+    for (const key in states) {
       amenitylist.push(states[key]);
     }
-    for (let key in cities) {
+    for (const key in cities) {
       amenitylist.push(cities[key]);
     }
     $('.locations h4').text(amenitylist.join(', '));
@@ -36,7 +36,7 @@ $(document).ready(function () {
       delete amenities[$(this).attr('data-id')];
     }
     const amenitylist = [];
-    for (let key in amenities) {
+    for (const key in amenities) {
       amenitylist.push(amenities[key]);
     }
     $('.amenities h4').text(amenitylist.join(', '));
@@ -54,11 +54,11 @@ $(document).ready(function () {
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
-      data: JSON.stringify({ 'amenities': Object.keys(amenities), 'states': Object.keys(states), 'cities': Object.keys(cities) }),
+      data: JSON.stringify({ amenities: Object.keys(amenities), states: Object.keys(states), cities: Object.keys(cities) }),
       success: function (response) {
-	$('.places h1').css('display', 'flex');
+        $('.places h1').css('display', 'flex');
         $('article').remove();
-	response = response.sort((a, b) => (a.name > b.name) ? 1 : -1);
+        response = response.sort((a, b) => (a.name > b.name) ? 1 : -1);
         $.each(response, function (k, v) {
           $(`<article>
 <div class="title">
