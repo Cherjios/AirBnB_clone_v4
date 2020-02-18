@@ -220,7 +220,6 @@ github repo
 * Jared Heck, [jarehec](https://github.com/jarehec) | [@jarehec](https://twitter.com/jarehec)
 
 1
-2
 4
 6
 7
