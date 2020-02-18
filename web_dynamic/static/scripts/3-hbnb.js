@@ -7,7 +7,7 @@ $(document).ready(function () {
       delete amenityid[$(this).attr('data-id')];
     }
     const amenitylist = [];
-    for (const key in amenitylist) {
+    for (const key in amenityid) {
       amenitylist.push(amenityid[key]);
     }
     $('.amenities h4').text(amenitylist.join(', '));
