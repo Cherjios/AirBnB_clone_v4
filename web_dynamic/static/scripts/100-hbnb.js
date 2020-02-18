@@ -1,9 +1,9 @@
 $(document).ready(function () {
   $('.places h1').css('display', 'none');
   $('.locations input').css('margin-right', '10px');
-  const states = {};
-  const cities = {};
-  const amenities = {};
+  let states = {};
+  let cities = {};
+  let amenities = {};
 
   $('.locations input[type="checkbox"]').click(function () {
     if ($(this).is(':checked')) {
@@ -41,7 +41,7 @@ $(document).ready(function () {
     }
     $('.amenities h4').text(amenitylist.join(', '));
   });
-  $.get('http://0.0.0.0:5001/api/v1/status/', function (response) {
+  $.get('http://4794c7186f5a.19.hbtn-cod.io:34275/api/v1/status', function (response) {
     if (response.status === 'OK') {
       $('DIV#api_status').addClass('available');
     } else {
@@ -50,12 +50,13 @@ $(document).ready(function () {
   });
   $('button').click(function () {
     $.ajax({
-      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      url: 'http://4794c7186f5a.19.hbtn-cod.io:34275/api/v1/places_search/',
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
       data: JSON.stringify({ 'amenities': Object.keys(amenities), 'states': Object.keys(states), 'cities': Object.keys(cities) }),
       success: function (response) {
+	$('.places h1').css('display', 'flex');
         $('article').remove();
 	response = response.sort((a, b) => (a.name > b.name) ? 1 : -1);
         $.each(response, function (k, v) {
