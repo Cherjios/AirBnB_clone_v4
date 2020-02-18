@@ -220,6 +220,6 @@ github repo
 * Jared Heck, [jarehec](https://github.com/jarehec) | [@jarehec](https://twitter.com/jarehec)
  
 
-###License
+### License
 
 MIT License
