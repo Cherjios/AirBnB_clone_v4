@@ -41,7 +41,7 @@ $(document).ready(function () {
     }
     $('.amenities h4').text(amenitylist.join(', '));
   });
-  $.get('http://4794c7186f5a.19.hbtn-cod.io:34275/api/v1/status', function (response) {
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (response) {
     if (response.status === 'OK') {
       $('DIV#api_status').addClass('available');
     } else {
@@ -50,7 +50,7 @@ $(document).ready(function () {
   });
   $('button').click(function () {
     $.ajax({
-      url: 'http://4794c7186f5a.19.hbtn-cod.io:34275/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
