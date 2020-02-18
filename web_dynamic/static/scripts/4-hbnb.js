@@ -25,7 +25,7 @@ $(document).ready(function () {
 	  type: 'POST',
 	  dataType: 'json',
 	  contentType: 'application/json',
-	  data: JSON.stringify({}),
+	  data: JSON.stringify({ 'amenities': Object.keys(amenityid) }),
 	  success: function (response) {
 	      $('article').remove();
 	      $.each(response, function (k, v) {
@@ -61,7 +61,6 @@ $(document).ready(function () {
 		    </div>
 		    </article>`).appendTo('.places');
 	      });
-	  }
+	  }});
       });
   });
-});
